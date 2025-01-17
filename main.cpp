@@ -23,7 +23,6 @@ int main()
         add(taskDesc);
         break;
     case 1:
-        std::cout << "Execute update command" << std::endl;
 
         break;
     case 2:
@@ -31,8 +30,26 @@ int main()
 
         break;
     case 3:
-        checkForReadCommand();
+        checkForReadCommand(command);
         break;
+    }
+    switch (CR) {
+        {
+    case 0:
+        listTodo();
+        break;
+    case 1:
+        listInProgress();
+
+        break;
+    case 2:
+        listDone();
+
+        break;
+    case 3:
+        listAll();
+        break;
+        }
     }
 }
 
