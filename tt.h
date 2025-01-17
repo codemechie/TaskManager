@@ -19,9 +19,9 @@ enum commandListCUD {
 extern commandListCUD CL;
 
 enum commandListREAD {
-    LIST_TODO, LIST_IN_PROGRESS, LIST_DONE
+    LIST_TODO, LIST_IN_PROGRESS, LIST_DONE, LIST_ALL, INVALID
 };
-//commandListREAD CR = LIST_TODO;
+extern commandListREAD CR = LIST_TODO;
 
 class Task {
 public:
@@ -40,7 +40,15 @@ public:
 
 
 void add(std::string desc);
+void update(int id);
+void remove(int id);
 void saveTaskToJson(const Task& task, const std::string& filename);
 void checkForCUD(std::string command);
-void checkForReadCommand();
+void checkForReadCommand(std::string command);
+
+
+void listAll();
+void listTodo();
+void listInProgress();
+void listDone();
 
